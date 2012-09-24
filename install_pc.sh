@@ -47,11 +47,12 @@ sudo apt-get remove --purge `deborphan`
 # some of previous command could sometimes remove gnome-shell
 sudo apt-get install gnome-shell
 
-# Install hamster & hamster-shell
+# Remove Ubuntu version of hamster
 sudo apt-get remove --purge hamster-indicator hamster-applet
 killall -9 hamster-service
 killall -9 hamster-time-tracker
 
+# Install hamster & hamster-shell
 sudo apt-get install git-core gettext intltool gnome-control-center-dev
 cd $APPLICATION_DIR
 git clone git://github.com/projecthamster/hamster.git
@@ -63,4 +64,3 @@ cd $APPLICATION_DIR
 git clone git://github.com/projecthamster/shell-extension.git
 cd ~/.local/share/gnome-shell/extensions/
 ln -s $APPLICATION_DIR/shell-extension hamster@projecthamster.wordpress.com
-
