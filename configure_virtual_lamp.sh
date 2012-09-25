@@ -22,7 +22,7 @@ apt-get update
 
 apt-get upgrade
 
-apt-get install vim mysql-server php-apc php5-xdebug php5-intl php5-sqlite git
+apt-get install vim mysql-server php-apc php5-xdebug php5-intl php5-sqlite git htop
 
 apt-get install phpmyadmin
 
