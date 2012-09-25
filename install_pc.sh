@@ -35,6 +35,7 @@ sudo apt-get install xpad
 ln -s $SYNC_FOLDER/filezilla /home/$USER/.filezilla
 sudo apt-get install filezilla
 
+# Remove this bad and fat app's !
 sudo apt-get remove --purge avahi-autoipd avahi-utils libnss-mdns libavahi-client-dev libavahi-common-dev libavahi-core6
 sudo apt-get remove --purge empathy empathy-common telepathy-salut telepathy-gabble telepathy-haze telepathy-idle telepathy-mission-control-5 python-telepathy indicator-messages
 sudo apt-get remove --purge speech-dispatcher python-speechd libespeak1
