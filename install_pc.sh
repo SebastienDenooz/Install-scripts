@@ -1,12 +1,17 @@
 #!/bin/sh
 
 ARCH=`uname -p`
-SYNC_FOLDER=~/ownCloud/sync
+SYNC_FOLDER=~/Sync
 APPLICATION_DIR=~/Programmes
+
+sudo apt-get update
+sudo apt-get upgrade
+
 # Git: One to rules them all
 apt-get install git ssh
 
 mkdir -p $APPLICATION_DIR
+mkdir -p $SYNC_FOLDER
 
 # Source list for different good app ;-)
 
@@ -21,11 +26,21 @@ deb http://repository.spotify.com stable non-free
 
 " >> /etc/apt/source.list
 
+# Install Medibuntu repos
+sudo -E wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list && sudo apt-get --quiet update && sudo apt-get --yes --quiet --allow-unauthenticated install medibuntu-keyring && sudo apt-get --quiet update
+sudo apt-get install app-install-data-medibuntu apport-hooks-medibuntu
+
 wget -q "http://deb.playonlinux.com/public.gpg" -O- | sudo apt-key add -
 sudo wget http://deb.playonlinux.com/playonlinux_precise.list -O /etc/apt/sources.list.d/playonlinux.list
 sudo apt-get update
 sudo apt-get install playonlinux
 
+# Dropbox install
+if $ARCH == "x86_64"
+then cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+else cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf -
+fi
+~/.dropbox-dist/dropboxd
 
 # Install xpad
 ln -s $SYNC_FOLDER/xpad /home/$USER/.config/xpad
@@ -53,7 +68,7 @@ sudo apt-get remove --purge hamster-indicator hamster-applet
 killall -9 hamster-service
 killall -9 hamster-time-tracker
 
-# Install hamster & hamster-shell
+# Install the good hamster & hamster-shell
 sudo apt-get install git-core gettext intltool gnome-control-center-dev
 cd $APPLICATION_DIR
 git clone git://github.com/projecthamster/hamster.git
@@ -65,3 +80,20 @@ cd $APPLICATION_DIR
 git clone git://github.com/projecthamster/shell-extension.git
 cd ~/.local/share/gnome-shell/extensions/
 ln -s $APPLICATION_DIR/shell-extension hamster@projecthamster.wordpress.com
+
+
+# DVD Read capacity
+sudo apt-get install libdvdread4
+sudo /usr/share/doc/libdvdread4/install-css.sh
+
+# Other good stuff
+sudo apt-get install vlc ubuntu-restricted-extras p7zip-full unrar cheese inkscape compizconfig-settings-manager firefox thunderbird w32codecs w64codecs non-free-codecs
+
+
+
+# Finish the install
+sudo apt-get update
+sudo apt-get upgrade
+
+echo "Installation finished!"
+echo "Reboot needed."
