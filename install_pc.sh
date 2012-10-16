@@ -8,7 +8,7 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # Git: One to rules them all
-apt-get install git ssh
+sudo apt-get install git ssh
 
 mkdir -p $APPLICATION_DIR
 mkdir -p $SYNC_FOLDER
@@ -88,8 +88,6 @@ sudo /usr/share/doc/libdvdread4/install-css.sh
 
 # Other good stuff
 sudo apt-get install vlc ubuntu-restricted-extras p7zip-full unrar cheese inkscape compizconfig-settings-manager firefox thunderbird w32codecs w64codecs non-free-codecs
-
-
 
 # Finish the install
 sudo apt-get update
