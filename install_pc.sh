@@ -93,7 +93,12 @@ sudo apt-get install -y libdvdread4
 sudo /usr/share/doc/libdvdread4/install-css.sh
 
 # Other good stuff
-sudo apt-get install -y vlc ubuntu-restricted-extras p7zip-full unrar cheese inkscape compizconfig-settings-manager firefox thunderbird w32codecs w64codecs non-free-codecs
+sudo apt-get install -y vlc ubuntu-restricted-extras p7zip-full unrar cheese inkscape compizconfig-settings-manager firefox thunderbird non-free-codecs
+
+if $ARCH == "x86_64"
+then sudo apt-get install -y w64codecs
+else sudo apt-get install -y w32codecs
+fi
 
 # Finish the install
 sudo apt-get update
