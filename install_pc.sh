@@ -83,6 +83,7 @@ sudo ./waf install
 
 cd $APPLICATION_DIR
 git clone git://github.com/projecthamster/shell-extension.git
+mkdir -p ~/.local/share/gnome-shell/extensions/
 cd ~/.local/share/gnome-shell/extensions/
 ln -s $APPLICATION_DIR/shell-extension hamster@projecthamster.wordpress.com
 
