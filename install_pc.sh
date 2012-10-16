@@ -31,12 +31,12 @@ deb http://repository.spotify.com stable non-free
 
 # Install Medibuntu repos
 sudo -E wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list && sudo apt-get --quiet update && sudo apt-get --yes --quiet --allow-unauthenticated install medibuntu-keyring && sudo apt-get --quiet update
-sudo apt-get install app-install-data-medibuntu apport-hooks-medibuntu
+sudo apt-get install -y app-install-data-medibuntu apport-hooks-medibuntu
 
 wget -q "http://deb.playonlinux.com/public.gpg" -O- | sudo apt-key add -
 sudo wget http://deb.playonlinux.com/playonlinux_precise.list -O /etc/apt/sources.list.d/playonlinux.list
 sudo apt-get update
-sudo apt-get install playonlinux
+sudo apt-get install -y playonlinux
 
 # Dropbox install
 if $ARCH == "x86_64"
@@ -49,32 +49,32 @@ fi
 
 # Install xpad
 ln -s $SYNC_FOLDER/xpad /home/$USER/.config/xpad
-sudo apt-get install xpad 
+sudo apt-get install -y xpad 
 
 # Install FileZilla
 ln -s $SYNC_FOLDER/filezilla /home/$USER/.filezilla
-sudo apt-get install filezilla
+sudo apt-get install -y filezilla
 
 # Remove this bad and fat app's !
-sudo apt-get remove --purge avahi-autoipd avahi-utils libnss-mdns libavahi-client-dev libavahi-common-dev libavahi-core6
-sudo apt-get remove --purge empathy empathy-common telepathy-salut telepathy-gabble telepathy-haze telepathy-idle telepathy-mission-control-5 python-telepathy indicator-messages
-sudo apt-get remove --purge speech-dispatcher python-speechd libespeak1
-sudo apt-get remove --purge gwibber gwibber-service
-sudo apt-get remove --purge ubuntuone-client ubuntuone-client-gnome python-ubuntuone-storageprotocol python-ubuntuone-client
+sudo apt-get remove --purge -y avahi-autoipd avahi-utils libnss-mdns libavahi-client-dev libavahi-common-dev libavahi-core6
+sudo apt-get remove --purge -y empathy empathy-common telepathy-salut telepathy-gabble telepathy-haze telepathy-idle telepathy-mission-control-5 python-telepathy indicator-messages
+sudo apt-get remove --purge -y speech-dispatcher python-speechd libespeak1
+sudo apt-get remove --purge -y gwibber gwibber-service
+sudo apt-get remove --purge -y ubuntuone-client ubuntuone-client-gnome python-ubuntuone-storageprotocol python-ubuntuone-client
 
-sudo apt-get install deborphan
-sudo apt-get remove --purge `deborphan`
+sudo apt-get install -y deborphan
+sudo apt-get remove --purge -y `deborphan`
 
 # some of previous command could sometimes remove gnome-shell
 sudo apt-get install gnome-shell
 
 # Remove Ubuntu version of hamster
-sudo apt-get remove --purge hamster-indicator hamster-applet
+sudo apt-get remove --purge -y hamster-indicator hamster-applet
 killall -9 hamster-service
 killall -9 hamster-time-tracker
 
 # Install the good hamster & hamster-shell
-sudo apt-get install git-core gettext intltool gnome-control-center-dev
+sudo apt-get install -y git-core gettext intltool gnome-control-center-dev
 cd $APPLICATION_DIR
 git clone git://github.com/projecthamster/hamster.git
 cd hamster
@@ -88,11 +88,11 @@ ln -s $APPLICATION_DIR/shell-extension hamster@projecthamster.wordpress.com
 
 
 # DVD Read capacity
-sudo apt-get install libdvdread4
+sudo apt-get install -y libdvdread4
 sudo /usr/share/doc/libdvdread4/install-css.sh
 
 # Other good stuff
-sudo apt-get install vlc ubuntu-restricted-extras p7zip-full unrar cheese inkscape compizconfig-settings-manager firefox thunderbird w32codecs w64codecs non-free-codecs
+sudo apt-get install -y vlc ubuntu-restricted-extras p7zip-full unrar cheese inkscape compizconfig-settings-manager firefox thunderbird w32codecs w64codecs non-free-codecs
 
 # Finish the install
 sudo apt-get update
