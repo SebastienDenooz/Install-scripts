@@ -24,6 +24,9 @@ else wget http://dl.google.com/dl/earth/client/current/google-earth-stable_curre
 fi
 sudo dpkg -i /tmp/google-earth.deb
 
+# Clean the install
+sudo apt-get -f install
+
 sudo echo "
 deb http://repository.spotify.com stable non-free
 
