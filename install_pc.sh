@@ -69,7 +69,7 @@ sudo apt-get install -y deborphan
 sudo apt-get remove --purge -y `deborphan`
 
 # some of previous command could sometimes remove gnome-shell
-sudo apt-get install gnome-shell
+sudo apt-get install -y gnome-shell
 
 # Remove Ubuntu version of hamster
 sudo apt-get remove --purge -y hamster-indicator hamster-applet
