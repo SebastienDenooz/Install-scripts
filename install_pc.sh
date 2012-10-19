@@ -18,7 +18,7 @@ mkdir -p $SYNC_FOLDER
 # Google
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 # Install google earth package to provide google repos in apt.
-if $ARCH == "x86_64"
+if [ "$ARCH" = "x86_64" ];
 then wget http://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb -O /tmp/google-earth.deb
 else wget http://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb -O /tmp/google-earth.deb
 fi
@@ -42,7 +42,7 @@ sudo apt-get update
 sudo apt-get install -y playonlinux
 
 # Dropbox install
-if $ARCH == "x86_64"
+if [ "$ARCH" = "x86_64" ];
 then cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 else cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf -
 fi
@@ -98,7 +98,7 @@ sudo /usr/share/doc/libdvdread4/install-css.sh
 # Other good stuff
 sudo apt-get install -y sshfs vim vlc ubuntu-restricted-extras p7zip-full unrar cheese inkscape compizconfig-settings-manager firefox thunderbird non-free-codecs
 
-if $ARCH == "x86_64"
+if [ "$ARCH" = "x86_64" ];
 then sudo apt-get install -y w64codecs
 else sudo apt-get install -y w32codecs
 fi
