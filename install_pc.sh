@@ -97,6 +97,10 @@ mkdir -p ~/.local/share/gnome-shell/extensions/
 cd ~/.local/share/gnome-shell/extensions/
 ln -s $APPLICATION_DIR/shell-extension hamster@projecthamster.wordpress.com
 
+# Add equalizer for pulseaudio
+sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo apt-get update
+sudo apt-get install pulseaudio-equalizer
 
 # DVD Read capacity
 sudo apt-get install -y libdvdread4
