@@ -75,6 +75,9 @@ sudo apt-get remove --purge -y `deborphan`
 # some of previous command could sometimes remove gnome-shell
 sudo apt-get install -y gnome-shell
 
+# Install proper social tool for gnome
+sudo apt-get install account*
+
 # Remove Ubuntu version of hamster
 sudo apt-get remove --purge -y hamster-indicator hamster-applet
 killall -9 hamster-service
