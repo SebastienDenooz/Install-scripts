@@ -50,9 +50,13 @@ fi
 # Don't start dropbox now
 # ~/.dropbox-dist/dropboxd
 
-# Install xpad
-ln -s $SYNC_FOLDER/xpad /home/$USER/.config/xpad
-sudo apt-get install -y xpad 
+# Install Tomboy
+sudo apt-get install tomboy
+
+# Install ubuntu-tweak
+sudo add-apt-repository ppa:tualatrix/ppa
+sudo apt-get update
+sudo apt-get install ubuntu-tweak
 
 # Install FileZilla
 ln -s $SYNC_FOLDER/filezilla /home/$USER/.filezilla
