@@ -4,6 +4,9 @@ ARCH=`uname -p`
 SYNC_FOLDER=~/Dropbox/INFORMATIQUE/SYNC
 APPLICATION_DIR=~/Programmes
 
+mkdir -p $SYNC_FOLDER
+mkdir -p $APPLICATION_DIR
+
 sudo apt-get update
 sudo apt-get upgrade
 
