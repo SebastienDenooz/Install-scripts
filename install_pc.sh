@@ -76,7 +76,7 @@ sudo apt-get remove --purge -y ubuntuone-client ubuntuone-client-gnome python-ub
 sudo apt-get install -y gnome-shell
 
 # Install proper social tool for gnome
-sudo apt-get install account-plugin-aim account-plugin-facebook account-plugin-flickr account-plugin-google account-plugin-icons account-plugin-identica account-plugin-jabber account-plugin-salut account-plugin-twitter account-plugin-windows-live account-plugin-yahoo accountsservice account-plugin-foursquare account-plugin-gadugadu account-plugin-groupwise account-plugin-icq account-plugin-irc account-plugin-mxit account-plugin-myspace account-plugin-sametime account-plugin-sina account-plugin-sip account-plugin-sohu account-plugin-tools account-plugin-yahoojp account-plugin-zephyr 
+sudo apt-get -y install account-plugin-aim account-plugin-facebook account-plugin-flickr account-plugin-google account-plugin-icons account-plugin-identica account-plugin-jabber account-plugin-salut account-plugin-twitter account-plugin-windows-live account-plugin-yahoo accountsservice account-plugin-foursquare account-plugin-gadugadu account-plugin-groupwise account-plugin-icq account-plugin-irc account-plugin-mxit account-plugin-myspace account-plugin-sametime account-plugin-sina account-plugin-sip account-plugin-sohu account-plugin-tools account-plugin-yahoojp account-plugin-zephyr 
 
 # Remove Ubuntu version of hamster
 sudo apt-get remove --purge -y hamster-indicator hamster-applet
@@ -100,7 +100,7 @@ ln -s $APPLICATION_DIR/shell-extension hamster@projecthamster.wordpress.com
 # Add equalizer for pulseaudio
 sudo add-apt-repository ppa:nilarimogard/webupd8
 sudo apt-get update
-sudo apt-get install pulseaudio-equalizer
+sudo apt-get install -y pulseaudio-equalizer
 
 # DVD Read capacity
 sudo apt-get install -y libdvdread4
