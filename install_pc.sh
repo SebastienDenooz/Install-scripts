@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ARCH=`uname -p`
-SYNC_FOLDER=~/Sync
+SYNC_FOLDER=~/Dropbox/INFORMATIQUE/SYNC
 APPLICATION_DIR=~/Programmes
 
 sudo apt-get update
@@ -69,9 +69,6 @@ sudo apt-get remove --purge -y speech-dispatcher python-speechd libespeak1
 sudo apt-get remove --purge -y gwibber gwibber-service
 sudo apt-get remove --purge -y ubuntuone-client ubuntuone-client-gnome python-ubuntuone-storageprotocol python-ubuntuone-client
 
-sudo apt-get install -y deborphan
-sudo apt-get remove --purge -y `deborphan`
-
 # some of previous command could sometimes remove gnome-shell
 sudo apt-get install -y gnome-shell
 
@@ -107,12 +104,17 @@ sudo apt-get install -y libdvdread4
 sudo /usr/share/doc/libdvdread4/install-css.sh
 
 # Other good stuff
-sudo apt-get install -y sshfs vim vlc ubuntu-restricted-extras p7zip-full unrar cheese inkscape compizconfig-settings-manager firefox thunderbird non-free-codecs
+sudo apt-get install -y sshfs vim vlc ubuntu-restricted-extras p7zip-full unrar cheese inkscape compizconfig-settings-manager firefox chrome thunderbird non-free-codecs
 
 if [ "$ARCH" = "x86_64" ];
 then sudo apt-get install -y w64codecs
 else sudo apt-get install -y w32codecs
 fi
+
+
+sudo apt-get install -y deborphan
+sudo apt-get remove --purge -y `deborphan`
+
 
 # Finish the install
 sudo apt-get update
