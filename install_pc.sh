@@ -31,9 +31,13 @@ sudo dpkg -i /tmp/google-earth.deb
 sudo apt-get -f install
 
 sudo echo "
+
 deb http://repository.spotify.com stable non-free
 
 " >> /etc/apt/source.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
+sudo apt-get update
+sudo apt-get -y install spotify-client spotify-client-gnome-support
 
 # Install Medibuntu repos
 sudo -E wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list && sudo apt-get --quiet update && sudo apt-get --yes --quiet --allow-unauthenticated install medibuntu-keyring && sudo apt-get --quiet update
@@ -108,6 +112,13 @@ sudo /usr/share/doc/libdvdread4/install-css.sh
 
 # Other good stuff
 sudo apt-get install -y chromium-browser guake eclipse gnome-tweak-tool p7zip sshfs vim vlc ubuntu-restricted-extras p7zip-full unrar cheese inkscape compizconfig-settings-manager firefox chrome thunderbird non-free-codecs
+
+# Install Java
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo mkdir -p /usr/lib/mozilla/plugins #just in case, this will be added to the package in the next version
+sudo apt-get install oracle-jdk7-installer
+
 
 if [ "$ARCH" = "x86_64" ];
 then sudo apt-get install -y w64codecs
