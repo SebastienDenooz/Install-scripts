@@ -125,6 +125,31 @@ then sudo apt-get install -y w64codecs
 else sudo apt-get install -y w32codecs
 fi
 
+# Install tracer, if pc is stolen
+apt-get install python gnupg net-tools iw traceroute scrot streamer
+wget https://github.com/BoboTiG/pombo/raw/master/pombo.py -O /tmp/pombo.py
+wget https://raw.github.com/BoboTiG/pombo/master/pombo.conf -O /tmp/pombo.conf
+install -v /tmp/pombo.conf /etc
+install -v /tmp/pombo.py /usr/local/bin/pombo
+chmod 600 -v /etc/pombo.conf
+chmod +x -v /usr/local/bin/pombo
+if test -f /etc/crontab ; then
+	if [ $(grep -c "/usr/local/bin/pombo" /etc/crontab) != 0 ] ; then
+		echo "« sed -i '\/usr\/local\/bin\/pombo/d' /etc/crontab »"
+		sed -i '\/usr\/local\/bin\/pombo/d' /etc/crontab
+	fi
+else
+	echo "« touch /etc/crontab »"
+	touch /etc/crontab
+	chmod 644 -v /etc/crontab
+fi
+echo "« */15 * * * * root /usr/local/bin/pombo >>/etc/crontab »"
+echo "*/15 * * * * root /usr/local/bin/pombo" >>/etc/crontab
+[ -f /var/local/pombo ] && rm -fv /var/local/pombo
+rm /tmp/pombo.conf
+rm /tmp/pombo.py
+echo "Done."
+
 
 sudo apt-get install -y deborphan
 sudo apt-get remove --purge -y `deborphan`
@@ -135,4 +160,5 @@ sudo apt-get update
 sudo apt-get upgrade
 
 echo "Installation finished!"
+echo "Please, update your /etc/pombo.conf. Ex: vim /etc/pombo.conf"
 echo "Reboot needed."
