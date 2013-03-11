@@ -120,12 +120,14 @@ sudo mkdir -p /usr/lib/mozilla/plugins #just in case, this will be added to the 
 sudo apt-get install oracle-jdk7-installer
 
 # Install BFGMiner, a Bitcoin miner
-sudo apt-get install gcc g++ libpcre++-dev libcurl4-openssl-dev unzip unace libjansson-dev screen make
+sudo apt-get install gcc g++ libpcre++-dev libcurl4-openssl-dev unzip unace libjansson-dev screen make automake
 sudo apt-get install libtool libcurl4-gnutls-dev pkg-config yasm
+sudo apt-get install ocl-icd-opencl-dev
 cd $APPLICATION_DIR
 git clone git://github.com/luke-jr/bfgminer.git
 cd bfgminer/
 ./autogen.sh
+make clean
 ./configure --enable-cpumining --enable-scrypt
 make
 sudo make install
