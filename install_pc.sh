@@ -119,6 +119,17 @@ sudo apt-get update
 sudo mkdir -p /usr/lib/mozilla/plugins #just in case, this will be added to the package in the next version
 sudo apt-get install oracle-jdk7-installer
 
+# Install BFGMiner, a Bitcoin miner
+sudo apt-get install gcc g++ libpcre++-dev libcurl4-openssl-dev unzip unace libjansson-dev screen make
+sudo apt-get install libtool libcurl4-gnutls-dev pkg-config yasm
+cd $APPLICATION_DIR
+git clone git://github.com/luke-jr/bfgminer.git
+cd bfgminer/
+./autogen.sh
+./configure --enable-cpumining --enable-scrypt
+make
+sudo make install
+
 
 if [ "$ARCH" = "x86_64" ];
 then sudo apt-get install -y w64codecs
