@@ -131,6 +131,7 @@ make clean
 ./configure --enable-cpumining --enable-scrypt
 make
 sudo make install
+# use it with: ./bfgminer -u LOGIN -p PASSWORD -o http://mint.bitminter.com:8332 -a sse4_64 -C
 
 
 if [ "$ARCH" = "x86_64" ];
