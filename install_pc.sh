@@ -13,8 +13,22 @@ sudo apt-get upgrade
 # Git: One to rules them all
 sudo apt-get install git ssh
 
+git config --global core.editor geany
+git config --global user.name "Sébastien Denooz"
+git config --global user.email "sebastien.denooz@lattirail.net"
+git config --global diff.tool meld
+git config --global core.editor subl
+
+git config --global color.ui true
+
 mkdir -p $APPLICATION_DIR
 mkdir -p $SYNC_FOLDER
+
+# SCMBreeze, for easy giting, just in case it works well one day...
+# git clone git://github.com/ndbroadbent/scm_breeze.git $APPLICATION_DIR/scm_breeze
+# echo '[ -s "$APPLICATION_DIR/scm_breeze/scm_breeze.sh" ] && source "$APPLICATION_DIR/scm_breeze/scm_breeze.sh"' >> ~/.bashrc
+# cp $APPLICATION_DIR/scm_breeze/git.scmbrc.example ~/.git.scmbr
+
 
 # Source list for different good app ;-)
 
@@ -164,6 +178,10 @@ rm /tmp/pombo.conf
 rm /tmp/pombo.py
 echo "Done."
 
+# Install the sublime text 2 text editor
+sudo add-apt-repository ppa:webupd8team/sublime-text-2 
+sudo apt-get update
+sudo apt-get install sublime-text-2-beta
 
 sudo apt-get install -y deborphan
 sudo apt-get remove --purge -y `deborphan`
