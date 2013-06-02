@@ -125,7 +125,8 @@ sudo apt-get install -y libdvdread4
 sudo /usr/share/doc/libdvdread4/install-css.sh
 
 # Other good stuff
-sudo apt-get install -y chromium-browser guake eclipse gnome-tweak-tool p7zip sshfs vim vlc ubuntu-restricted-extras p7zip-full unrar cheese inkscape compizconfig-settings-manager firefox chrome thunderbird non-free-codecs
+sudo apt-get install -y sqliteman pgadmin python-pip regexxer chromium-browser guake eclipse gnome-tweak-tool p7zip sshfs vim vlc ubuntu-restricted-extras p7zip-full unrar cheese inkscape compizconfig-settings-manager firefox chrome thunderbird non-free-codecs
+sudo pip install -g dreampie
 
 # Install Java
 sudo add-apt-repository ppa:webupd8team/java
@@ -186,6 +187,10 @@ sudo apt-get install sublime-text-2-beta
 sudo apt-get install -y deborphan
 sudo apt-get remove --purge -y `deborphan`
 
+# Get this gnome, from http://gtgnome.net
+sudo add-apt-repository ppa:gtg/ppa
+sudo apt-get update
+sudo apt-get install gtg
 
 # Finish the install
 sudo apt-get update
